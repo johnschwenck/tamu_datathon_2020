@@ -1,3 +1,4 @@
 # Write functions here
-
-x <- 5
+install.packages("reticulate")
+install.packages("Rcpp")
+install.packages("rstan")
