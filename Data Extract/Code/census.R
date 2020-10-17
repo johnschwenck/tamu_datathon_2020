@@ -12,9 +12,13 @@ options(tigris_use_cache = TRUE)
 acs_variables <- load_variables(2018, "acs5", cache = T)
 
 # Obtain all necessary variables for model:
-# - Median Age (Total)
-# - Median Income
-# - 
+# - Education
+# - Transportation
+# - Demographics
+#   - Total Population
+#   - Median Age (Total)
+#   - Median Income
+
 education <- get_acs(geography = "county",
           variables = c(edu_level = "B15003_001",
                       edu_hs_only = "B15003_017",
