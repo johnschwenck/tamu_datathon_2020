@@ -1,4 +1,5 @@
 require(dplyr)
+setwd("~/tamu_datathon_2020/data")
 
 # FUNCTION: get housing prices
 get_housing <- function(data_folder_path){
@@ -63,3 +64,43 @@ get_housing <- function(data_folder_path){
 housing <- get_housing("~/tamu_datathon_2020/data")
 setwd("~/tamu_datathon_2020/Data Extract/data")
 save(housing, file = "housing.rda")
+
+get_rent_zip <- function(data_folder_path){
+  original_path <- getwd()
+  setwd(data_folder_path)
+  
+  rent <- readxl::read_xlsx("fy2021-safmrs.xlsx")
+  
+  rent_relevant <- c("ZIP\nCode", "HUD Metro Fair Market Rent Area Name", "CBSA","SAFMR\n0BR", "SAFMR\n1BR", "SAFMR\n2BR", "SAFMR\n3BR", "SAFMR\n4BR")
+  
+  # rent price for each zip code
+  rent_price_zip <- rent %>% 
+    mutate(CBSA = parse_number(`HUD Area Code`)) %>%
+    select(rent_relevant) %>%
+    rename(zip = `ZIP\nCode`,
+           metro_name = `HUD Metro Fair Market Rent Area Name`,
+           one_bed_rent = `SAFMR\n0BR`,
+           two_bed_rent = `SAFMR\n1BR`,
+           three_bed_rent = `SAFMR\n2BR`,
+           four_bed_rent = `SAFMR\n3BR`,
+           five_bed_rent = `SAFMR\n4BR`
+    )
+  setwd(original_path)
+  return(rent_price_zip)
+}
+
+# average rent prices for each metro area (CBSA)
+
+get_rent_metro <- function(rent_price_zip){
+  rent_price_metro <- rent_price_zip %>% 
+    group_by(CBSA) %>% 
+    summarise_at(c("one_bed_rent", "two_bed_rent", "three_bed_rent", "four_bed_rent", "five_bed_rent"), mean)
+  
+  return(rent_price_metro)
+}
+  
+rent_price_zip <- get_rent_zip("~/tamu_datathon_2020/data")
+rent_price_metro <- get_rent_metro(rent_price_zip)
+
+save(rent_price_zip, file = "rent_zip.rda")
+save(rent_price_metro, file = "rent_metro.rda")
