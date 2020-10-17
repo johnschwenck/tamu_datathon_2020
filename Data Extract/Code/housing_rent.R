@@ -1,5 +1,6 @@
 require(dplyr)
 setwd("~/tamu_datathon_2020/data")
+load("~/tamu_datathon_2020/Data Extract/Data/zip_metro.rda")
 
 # FUNCTION: get housing prices
 get_housing <- function(data_folder_path){
@@ -55,6 +56,12 @@ get_housing <- function(data_folder_path){
     left_join(ZHVI_4_rel, by = "county") %>%
     left_join(ZHVI_5_rel, by = "county") %>%
     left_join(ZHVI_condo_rel, by = "county")
+  
+  housing <- zip_metro %>%
+    left_join(housing, by = c("county_name" = "county")) %>%
+    distinct(CBSA, .keep_all = T) %>% 
+    select(CBSA, last_col(5):last_col())
+    
   setwd(original_path)
   return(housing)
 }
