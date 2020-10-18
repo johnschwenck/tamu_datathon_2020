@@ -112,7 +112,13 @@ for(i in 2:length(usa)){
 education$CBSA <- as.numeric(substr(as.character(education$GEOID),start = 3, nchar(as.character(education$GEOID)) ))
 education <- education %>%
                 select(-moe)
+
 education <- pivot_wider(education, names_from = variable, values_from = estimate)
+
+education <- education %>% 
+  group_by(CBSA) %>% 
+  summarize(sum(edu_hs_only), sum(edu_ged_only), 
+            sum(edu_bs), sum(edu_ms), sum(edu_prof), sum(edu_phd))
 
 save(education, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\education.rda')
 
@@ -175,6 +181,16 @@ trans <- trans %>%
             select(-moe)
 trans <- pivot_wider(trans, names_from = variable, values_from = estimate)
 
+trans %>%
+  group_by(CBSA) %>%
+  summarize(sum(priv_trans_all_qty), sum(public_trans_qty),
+            sum(walked_qty), sum(bike_cab_other_qty), 
+            sum(work_from_home_qty), mean(avg_time_to_work_all),
+            sum(priv_trans_all_time), sum(priv_trans_alone_time),
+            sum(priv_trans_carpool_time), sum(public_trans_time),
+            sum(walked_time), sum(bike_cab_other_time),
+            sum(priv_trans_carpool_qty))
+
 save(trans, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\transportation.rda')
 
 
@@ -219,7 +235,12 @@ for(i in 2:length(usa)){
 demograph$CBSA <- as.numeric(substr(as.character(demograph$GEOID),start = 3, nchar(as.character(demograph$GEOID)) ))
 demograph <- demograph %>%
                 select(-moe)
+
 demograph <- pivot_wider(demograph, names_from = variable, values_from = estimate)
+
+demograph <- demograph %>%
+                group_by(CBSA) %>%
+                summarize(mean(med_age_total), sum(total_pop), mean(med_income))
 
 save(demograph, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\demographics.rda')
 
