@@ -8,18 +8,6 @@
 
 # Variable Descriptions:  
 
-### Traffic (2016-2017):
-
-Source: http://tti.tamu.edu/documents/umr/congestion-data/complete-data-2019-umr-by-tti.xlsx  
-Raw Data: traffic_urban_mobility.xlsx  
-Processed Data: traffic_cbsa.rda  
-
-Variable Descriptions:
-
-- **msa**: Metropolitan Area Name
-- **CBSA**: Core-based statistical area code 
-- **annual_delay_person_hr**: Annual total person-hours of delay on freeways and arterial streets
-
 ### Housing (2019-2020):
 
 Source: https://www.zillow.com/research/data/  
@@ -36,7 +24,7 @@ Variable Descriptions:
 - **five_bed_avg**: Average price in dollars of five bedroom house
 - **condo_avg**: Average price in dollars of a condo
 
-### Rent (2021 Forecast):
+### Rental Prices (2021 Forecast):
 
 Source: https://www.huduser.gov/portal/datasets/fmr.html#2021_data  
 Raw Data: fy2021-safmrs.xlsx  
@@ -71,7 +59,6 @@ Raw Data:
 Census API key needed
 pub_trans = get_acs(variables = "B08006_008", 
                     geography="metropolitan statistical area/micropolitan statistical area")
-
 Processed Data: pub_trans.rda
 
 Variable Description:
@@ -91,3 +78,15 @@ Variable Description:
 - **CBSA**: Core-based statistical area code 
 - **mean(Avg.Min.Temp)**: mean average of minimum air temperature for each CBSA 
 - **mean(Avg.Max.Temp)**: mean average of maximum air temperature for each CBSA 
+
+### Covid Cases Report (2020):
+
+Source
+Raw Data: us_covid_counties.csv
+Processed Data: covid_14dayavg.rda
+
+Variable Description: 
+
+- **CBSA**: Core-based statistical area code
+- **mean(cases)**: Average number of Covid-19 cases from the date of the search
+- **mean(deaths)**: Average number of Covid-19 related deaths from the date of the search
