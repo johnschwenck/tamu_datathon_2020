@@ -1,8 +1,8 @@
 source("package_load.R")
 
-drive_auth()
-gdrive_path = 'https://drive.google.com/drive/folders/1pn8WQuZ0EVBQ-4F4CN9NewINWVCtvo1m?usp=sharing'
-drive_ls(gdrive_path)
+#drive_auth()
+#gdrive_path = 'https://drive.google.com/drive/folders/1pn8WQuZ0EVBQ-4F4CN9NewINWVCtvo1m?usp=sharing'
+#drive_ls(gdrive_path)
 
 # Census Data
 options(tigris_use_cache = TRUE)
@@ -181,7 +181,7 @@ trans <- trans %>%
             select(-moe)
 trans <- pivot_wider(trans, names_from = variable, values_from = estimate)
 
-trans %>%
+trans <- trans %>%
   group_by(CBSA) %>%
   summarize(sum(priv_trans_all_qty), sum(public_trans_qty),
             sum(walked_qty), sum(bike_cab_other_qty), 
@@ -193,6 +193,7 @@ trans %>%
 
 save(trans, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\transportation.rda')
 
+save(trans, file = 'transportation.rda')
 
 
 
