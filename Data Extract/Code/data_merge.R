@@ -3,7 +3,7 @@ source('package_load.R')
 setwd('Data Extract/Data/')
 
 for(i in 1:length(list.files(pattern = ".rda"))){
-  load(list.files(pattern = "*.rda")[i])
+  load(list.files(pattern = "*.[Rr]da")[i])
 }
 
 df_list = list(rent_price_metro, hc_rest_pop, aqi_2019, pub_trans, housing, 
@@ -26,7 +26,6 @@ merge <- full_join( religion              , merge, by = "CBSA") # Religion
 #merge <- full_join( traffic_cbsa          , merge, by = "CBSA") # Traffic 
 merge <- full_join( trans                 , merge, by = "CBSA") # Transportation Methods
 merge <- full_join( rent_price_metro      , merge, by = "CBSA") # Avg Rent Price
-merge <- full_join( housing               , merge, by = "CBSA") # Avg Housing Price
 merge <- full_join( demograph             , merge, by = "CBSA") # Demographics
 merge <- full_join( education             , merge, by = "CBSA") # Education
 
@@ -39,7 +38,8 @@ View(merge)
 
 save(merge, file = 'merge_no_ind.rda')
 
-# Religion doesn't load for some reason. Need to manually enter it via religion.R
+
+#### Religion works now, updated regex, code below not necessary
 
 merge <- full_join( industries_pop        , merge, by = "CBSA") # Industries
 merge_w_ind <- merge 
