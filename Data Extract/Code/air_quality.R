@@ -9,6 +9,6 @@ class(aqi_2019$CBSA.Code)
 
 names(aqi_2019) = c("City, State", "CBSA", 
                     "Year", "Median AQI")
-head(aqi_2019)
+aqi_2019$CBSA = as.numeric(aqi_2019$CBSA)
 
-save(aqi_2019, file='air_quality.rda')
+save(aqi_2019, file='Code\ air_quality.rda')
