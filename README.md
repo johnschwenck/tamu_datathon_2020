@@ -54,6 +54,7 @@ Variable Descriptions:
 ### Air Quality Index (2019): 
 
 Source: https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual
+
 Raw Data: annual_aqi_by_cbsa_2019.csv
 Processed Data: air_quality.rda
 
@@ -66,8 +67,9 @@ Variable Descriptions:
 ### Public Transportation (2018): 
 
 Source: https://api.census.gov/data/2018/acs/acs5/variables.html
+
 Raw Data: 
-* Census API key needed
+Census API key needed
 pub_trans = get_acs(variables = "B08006_008", 
                     geography="metropolitan statistical area/micropolitan statistical area")
 
@@ -82,6 +84,7 @@ Variable Description:
 ### Daily Average of Temperatures (2011):
 
 Source: https://wonder.cdc.gov/controller/datarequest/D60
+
 Raw Data: max_avg_temps2011.txt and min_avg_temps2011.txt
 Processed Data: avg_temps_msa.rda
 
