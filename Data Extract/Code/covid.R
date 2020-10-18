@@ -12,11 +12,15 @@ msa_table = (msa_table
 
 covid_msa_ts = (left_join(covid, msa_table, by="fips")
              %>% drop_na(`CBSA Code`)
-             %>% group_by(`date`, `CBSA Code`))
+             %>% mutate(CBSA = as.numeric(`CBSA Code`))
+             %>% select(-`CBSA Code`)
+             %>% group_by(date, CBSA))
 
 covid_msa = (left_join(covid, msa_table, by="fips")
              %>% drop_na(`CBSA Code`)
-             %>% group_by(`CBSA Code`))
+             %>% mutate(CBSA = as.numeric(`CBSA Code`))
+             %>% select(-`CBSA Code`)
+             %>% group_by(CBSA))
 
 covid_timeseries_msa = covid_msa_ts %>% summarize(mean(cases), mean(deaths))
 covid_14dayavg_msa = covid_msa %>% summarize(mean(cases), mean(deaths))
