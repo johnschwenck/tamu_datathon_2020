@@ -78,14 +78,125 @@ Variable Description:
 - **mean(Avg.Min.Temp)**: mean average of minimum air temperature for each CBSA 
 - **mean(Avg.Max.Temp)**: mean average of maximum air temperature for each CBSA 
 
-### Covid Cases Report (2020):
+### Demographics
 
-Source  \t
-Raw Data: us_covid_counties.csv \t 
-Processed Data: covid_14dayavg.rda  \t    
+Source: https://www.bls.gov/oes/tables.html   
+Raw Data: oesm19ma.zip; MSA_M2019_dl.xlsx   
+Processed Data: demographics.rda    
+
+Variable Descriptions:
+
+- *CBSA*: Core-based statistical area code
+- *CBSA_name*: Core-based statistical area name
+- *tot_emp_hc*: Total employees in healthcare
+- *loc_quotient_hc*: Location quotient for healthcare
+- *tot_emp_rest*: Total employees in restaurants and food service
+- *loc_quotient_rest*: Location quotient for restaurants and food service
+- *pop*: Population
+- *pca_hc*: Healthcare employees per capita
+- *rest_hc*: Restaurant and food service workers per capita
+
+### Healthcare and Restaurant Labor Statistics (2019):
+
+Source: https://www.bls.gov/oes/tables.html   
+Raw Data: oesm19ma.zip; MSA_M2019_dl.xlsx   
+Processed Data: healthcare_restaurants_labor.rda    
+
+Variable Descriptions:
+
+- *CBSA*: Core-based statistical area code
+- *CBSA_name*: Core-based statistical area name
+- *tot_emp_hc*: Total employees in healthcare
+- *loc_quotient_hc*: Location quotient for healthcare
+- *tot_emp_rest*: Total employees in restaurants and food service
+- *loc_quotient_rest*: Location quotient for restaurants and food service
+- *pop*: Population
+- *pca_hc*: Healthcare employees per capita
+- *rest_hc*: Restaurant and food service workers per capita
+
+### Industry Labor Statistics (2019):
+
+Source: https://www.bls.gov/oes/tables.html   
+Raw Data: oesm19ma.zip; MSA_M2019_dl.xlsx   
+Processed Data: healthcare_restaurants_labor.rda    
+
+Variable Descriptions:
+
+- *CBSA*: Core-based statistical area code
+- *occ_title*: Occupation
+- *tot_emp*: Total employees in occupation
+- *pop*: Population
+- *pca*: Employees in occupation per capita
+- *loc_quotient*: Location quotient for occupation in CBSA
+
+### COVID Cases and Deaths (2020):
+
+Source: https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html   
+Raw Data: us_crime_counties.csv   
+Processed Data: covid_14dayavg.rda    
+
+Variable Descriptions:
+
+- *CBSA*: Core-based statistical area code
+- *mean(cases)*: 14-day average of cases
+- *mean(deaths)*: 14-day average of deaths
+
+### Transportation (2016-2018):
+
+Source: https://api.census.gov/data/2018/acs/acs5/variables.html
+Raw Data:   
+B08101_025, B08134_061, B08101_009, B08134_011, B08134_021, B08301_004, B08134_031, B08101_033, B08101_041, B08134_111, B08101_049, B08134_001
+Processed Data: transportation.rda  
 
 Variable Description: 
 
-- **CBSA**: Core-based statistical area code  
-- **mean(cases)**: Average number of Covid-19 cases from the date of the search
-- **mean(deaths)**: Average number of Covid-19 related deaths from the date of the search
+- **public_trans_qty**: Average number of people who took public transportation
+- **priv_trans_all_qty**: Average number of people who took private transportation
+- ***priv_trans_alone_qty**: Average number of people who took private transportation and traveled alone
+- **priv_trans_carpool_qty**: Average number of people who took private transportation and carpooled
+- **walked_qty**: Average number of people who walk
+- **bike_cab_other_qty**: Average number of bike, cab and other transportation usage
+- **work_from_home_qty**: Average number of people who work from home
+- **avg_time_to_work_all**: Average number of seconds for a person to get to work 
+
+
+### Religion
+
+Source: 
+Raw Data: 
+Processed Data: 
+
+Variable Description: 
+
+### Politics 
+
+
+Source: 
+Raw Data: 
+Processed Data: 
+
+Variable Description: 
+
+### Labor - Industries
+
+Source: 
+Raw Data: 
+Processed Data: 
+
+Variable Description: 
+
+### Education
+
+Source: 
+Raw Data: 
+Processed Data: 
+
+Variable Description: 
+
+### Healthcare and Resturant 
+
+Source: 
+Raw Data: 
+Processed Data: 
+
+Variable Description: 
