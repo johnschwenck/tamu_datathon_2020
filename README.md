@@ -89,5 +89,5 @@ Processed Data: avg_temps_msa.rda
 Variable Description:
 
 - **CBSA**: Core-based statistical area code 
-- **mean(Avg.Min.Temp)**: mean averegae of minimum air temperature for each CBSA 
-- **mean(Avg.Max.Temp)**: mean averegae of maximum air temperature for each CBSA 
+- **mean(Avg.Min.Temp)**: mean average of minimum air temperature for each CBSA 
+- **mean(Avg.Max.Temp)**: mean average of maximum air temperature for each CBSA 
