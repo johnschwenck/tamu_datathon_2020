@@ -10,7 +10,9 @@ pub_trans = get_acs(variables = "B08006_008",
                     geography="metropolitan statistical area/micropolitan statistical area") 
 
 pub_trans = pub_trans %>% rename("CBSA" = "GEOID", "Avg_User" = "estimate")
+pub_trans$CBSA = as.integer(pub_trans$CBSA)
 pub_trans = pub_trans[,c(1,2,4)]
+
 
 max(pub_trans$Avg_User, na.rm = TRUE)
 min(pub_trans$Avg_User, na.rm = TRUE)
