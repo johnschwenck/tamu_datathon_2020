@@ -152,7 +152,7 @@ Variable Description:
 
 - **public_trans_qty**: Average number of people who took public transportation
 - **priv_trans_all_qty**: Average number of people who took private transportation
-- ***priv_trans_alone_qty**: Average number of people who took private transportation and traveled alone
+- **priv_trans_alone_qty**: Average number of people who took private transportation and traveled alone
 - **priv_trans_carpool_qty**: Average number of people who took private transportation and carpooled
 - **walked_qty**: Average number of people who walk
 - **bike_cab_other_qty**: Average number of bike, cab and other transportation usage
