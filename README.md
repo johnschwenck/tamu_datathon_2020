@@ -56,8 +56,7 @@ Variable Descriptions:
 Source: https://api.census.gov/data/2018/acs/acs5/variables.html    
 Raw Data:     
 Census API key needed    
-pub_trans = get_acs(variables = "B08006_008", 
-                    geography="metropolitan statistical area/micropolitan statistical area")    
+pub_trans = B08006_008       
 Processed Data: pub_trans.rda   
 
 Variable Description: 
@@ -129,8 +128,7 @@ Variable Descriptions:
 ### Transportation (2016-2018):
 
 Source: https://api.census.gov/data/2018/acs/acs5/variables.html
-Raw Data:   
-B08101_025, B08134_061, B08101_009, B08134_011, B08134_021, B08301_004, B08134_031, B08101_033, B08101_041, B08134_111, B08101_049, B08134_001
+Raw Data: B08101_025, B08134_061, B08101_009, B08134_011, B08134_021, B08301_004, B08134_031, B08101_033, B08101_041, B08134_111, B08101_049, B08134_001    
 Processed Data: transportation.rda  
 
 Variable Description: 
@@ -163,9 +161,8 @@ Variable Description:
 ### Education
 
 Source: https://libguides.princeton.edu/c.php?g=464855&p=3181354    
-Raw Data:   
-B15003_017, B15003_018, B15003_022, B15003_023, B15003_024, B15003_025     
-Processed Data:education.rda    
+Raw Data: B15003_017, B15003_018, B15003_022, B15003_023, B15003_024, B15003_025         
+Processed Data: education.rda    
 
 Variable Description: 
 
