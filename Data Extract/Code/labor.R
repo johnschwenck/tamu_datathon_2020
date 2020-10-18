@@ -2,7 +2,9 @@ library('tidyverse')
 library('tidycensus')
 library('readxl')
 
-labor = read_excel('../MSA_M2019_dl.xlsx', col_names=T)
+census_api_key("07ef51c4b8508066879116205191a09a92773321")
+
+labor = read_excel('C:/Users/Arjun/Downloads/Projects/devel/datathon/MSA_M2019_dl.xlsx', col_names=T)
 labor_healthcare = (labor %>% filter(o_group=="major", occ_code %in% c("29-0000")) 
                     %>% select(area, area_title, tot_emp, loc_quotient))
 labor_restaurants = (labor %>% filter(o_group=="major", occ_code %in% c("35-0000")) 
