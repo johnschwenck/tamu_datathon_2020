@@ -86,15 +86,15 @@ Processed Data: demographics.rda
 
 Variable Descriptions:
 
-- *CBSA*: Core-based statistical area code
-- *CBSA_name*: Core-based statistical area name
-- *tot_emp_hc*: Total employees in healthcare
-- *loc_quotient_hc*: Location quotient for healthcare
-- *tot_emp_rest*: Total employees in restaurants and food service
-- *loc_quotient_rest*: Location quotient for restaurants and food service
-- *pop*: Population
-- *pca_hc*: Healthcare employees per capita
-- *rest_hc*: Restaurant and food service workers per capita
+- **CBSA**: Core-based statistical area code
+- **CBSA_name**: Core-based statistical area name
+- **tot_emp_hc**: Total employees in healthcare
+- **loc_quotient_hc**: Location quotient for healthcare
+- **tot_emp_rest**: Total employees in restaurants and food service
+- **loc_quotient_rest**: Location quotient for restaurants and food service
+- **pop**: Population
+- **pca_hc**: Healthcare employees per capita
+- **rest_hc**: Restaurant and food service workers per capita
 
 ### Healthcare and Restaurant Labor Statistics (2019):
 
@@ -104,15 +104,15 @@ Processed Data: healthcare_restaurants_labor.rda
 
 Variable Descriptions:
 
-- *CBSA*: Core-based statistical area code
-- *CBSA_name*: Core-based statistical area name
-- *tot_emp_hc*: Total employees in healthcare
-- *loc_quotient_hc*: Location quotient for healthcare
-- *tot_emp_rest*: Total employees in restaurants and food service
-- *loc_quotient_rest*: Location quotient for restaurants and food service
-- *pop*: Population
-- *pca_hc*: Healthcare employees per capita
-- *rest_hc*: Restaurant and food service workers per capita
+- **CBSA**: Core-based statistical area code
+- **CBSA_name**: Core-based statistical area name
+- **tot_emp_hc**: Total employees in healthcare
+- **loc_quotient_hc**: Location quotient for healthcare
+- **tot_emp_rest**: Total employees in restaurants and food service
+- **loc_quotient_rest**: Location quotient for restaurants and food service
+- **pop**: Population
+- **pca_hc**: Healthcare employees per capita
+- **rest_hc**: Restaurant and food service workers per capita
 
 ### COVID Cases and Deaths (2020):
 
@@ -122,9 +122,9 @@ Processed Data: covid_14dayavg.rda
 
 Variable Descriptions:
 
-- *CBSA*: Core-based statistical area code
-- *mean(cases)*: 14-day average of cases
-- *mean(deaths)*: 14-day average of deaths
+- **CBSA**: Core-based statistical area code
+- **mean(cases)**: 14-day average of cases
+- **mean(deaths)**: 14-day average of deaths
 
 ### Transportation (2016-2018):
 
@@ -135,14 +135,14 @@ Processed Data: transportation.rda
 
 Variable Description: 
 
-- *CBSA*: Core-based statistical area code
-- *public_trans_qty*: Average number of people who took public transportation
-- *priv_trans_all_qty*: Average number of people who took private transportation
-- *priv_trans_carpool_qty*: Average number of people who took private transportation and carpooled
-- *walked_qty*: Average number of people who walk
-- *bike_cab_other_qty*: Average number of bike, cab and other transportation usage
-- *work_from_home_qty*: Average number of people who work from home
-- *avg_time_to_work_all*: Average number of seconds for a person to get to work 
+- **CBSA**: Core-based statistical area code
+- **public_trans_qty**: Average number of people who took public transportation
+- **priv_trans_all_qty**: Average number of people who took private transportation
+- **priv_trans_carpool_qty**: Average number of people who took private transportation and carpooled
+- **walked_qty**: Average number of people who walk
+- **bike_cab_other_qty**: Average number of bike, cab and other transportation usage
+- **work_from_home_qty**: Average number of people who work from home
+- **avg_time_to_work_all**: Average number of seconds for a person to get to work 
 
 ### Religion (2010):
 
@@ -152,13 +152,13 @@ Processed Data: religion.rda
 
 Variable Description: 
 
-- *CBSA*: Core-based statistical area code
-- *sum(TOTCNG)*: All denominations/groups - Total number of congregations
-- *sum(TOTADH)*: All denominations/groups - Total number of adherents 
-- *sum(NONDCNG)*: Non-denominational - Total number of congregations
-- *sum(NONDADH)*: Non-denominational- Total number of adherents
-- *mean(TOTRATE)*:  All denominations/groups - Rates of adherence per 1,000 population
-- *mean(NONDRATE)*: Non-denominational - Rates of adherence per 1,000 population
+- **CBSA**: Core-based statistical area code
+- **sum(TOTCNG)**: All denominations/groups - Total number of congregations
+- **sum(TOTADH)**: All denominations/groups - Total number of adherents 
+- **sum(NONDCNG)**: Non-denominational - Total number of congregations
+- **sum(NONDADH)**: Non-denominational- Total number of adherents
+- **mean(TOTRATE)**:  All denominations/groups - Rates of adherence per 1,000 population
+- **mean(NONDRATE)**: Non-denominational - Rates of adherence per 1,000 population
 
 ### Education
 
@@ -169,10 +169,10 @@ Processed Data:education.rda
 
 Variable Description: 
 
-- *CBSA*: 
-- *edu_hs_only*: Total number of people who only have a high school diploma
-- *edu_ged_only*: Total number of people who only have a GED 
-- *edu_bs*: Total number of people who have a Bachlor's degree
-- *edu_ms*: Total number of people who hae a masters
-- *edu_prof*: Total number of professional persons
-- *edu_phd*:  Total number of people with a PhD  
+- **CBSA**: Core-based statistical area code
+- **edu_hs_only**: Total number of people who only have a high school diploma
+- **edu_ged_only**: Total number of people who only have a GED 
+- **edu_bs**: Total number of people who have a Bachlor's degree
+- **edu_ms**: Total number of people who hae a masters
+- **edu_prof**: Total number of professional persons
+- **edu_phd**:  Total number of people with a PhD  
