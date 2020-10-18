@@ -19,3 +19,5 @@ politics$Affil <- ifelse(is.na(str_extract(politics$PVI, "D")), "Rep","Dem")
 
 politics$PVI_std <- as.numeric(substring(politics$PVI, 3))
 politics$PVI_std <- ifelse(is.na(politics$PVI_std), 0, politics$PVI_std)
+
+save(politics, file = "C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\politics.rda")
