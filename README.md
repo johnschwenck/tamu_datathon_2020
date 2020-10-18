@@ -114,21 +114,6 @@ Variable Descriptions:
 - *pca_hc*: Healthcare employees per capita
 - *rest_hc*: Restaurant and food service workers per capita
 
-### Industry Labor Statistics (2019):
-
-Source: https://www.bls.gov/oes/tables.html   
-Raw Data: oesm19ma.zip; MSA_M2019_dl.xlsx   
-Processed Data: healthcare_restaurants_labor.rda    
-
-Variable Descriptions:
-
-- *CBSA*: Core-based statistical area code
-- *occ_title*: Occupation
-- *tot_emp*: Total employees in occupation
-- *pop*: Population
-- *pca*: Employees in occupation per capita
-- *loc_quotient*: Location quotient for occupation in CBSA
-
 ### COVID Cases and Deaths (2020):
 
 Source: https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html   
@@ -175,33 +160,19 @@ Variable Description:
 - *mean(TOTRATE)*:  All denominations/groups - Rates of adherence per 1,000 population
 - *mean(NONDRATE)*: Non-denominational - Rates of adherence per 1,000 population
 
-### Labor - Industries
-
-Source: 
-Raw Data: 
-Processed Data: 
-
-Variable Description: 
-
-- *CBSA*:
-- *occ_title*:
-- *tot_emp*:
-- *pop*: 
-- *pca*:
-- *loc_quotient*:
-
 ### Education
 
-Source: 
-Raw Data: 
-Processed Data: 
+Source: https://libguides.princeton.edu/c.php?g=464855&p=3181354    
+Raw Data:   
+B15003_017, B15003_018, B15003_022, B15003_023, B15003_024, B15003_025     
+Processed Data:education.rda    
 
 Variable Description: 
 
-### Healthcare and Resturant 
-
-Source: 
-Raw Data: 
-Processed Data: 
-
-Variable Description: 
+- *CBSA*: 
+- *edu_hs_only*: Total number of people who only have a high school diploma
+- *edu_ged_only*: Total number of people who only have a GED 
+- *edu_bs*: Total number of people who have a Bachlor's degree
+- *edu_ms*: Total number of people who hae a masters
+- *edu_prof*: Total number of professional persons
+- *edu_phd*:  Total number of people with a PhD  
