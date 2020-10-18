@@ -3,7 +3,7 @@ library(readr)
 library(readxl)
 
 covid = read_csv('C:\\Users\\Arjun\\Downloads\\Projects\\devel\\datathon\\us_covid_counties.csv')
-msa_table = read_excel('C:\\Users\\Arjun\\Downloads\\Projects\\devel\\datathon\\List12.xlsx')
+msa_table = read_excel('C:\\Users\\Arjun\\Downloads\\Projects\\devel\\datathon\\county_to_cbsa.xlsx')
 
 covid = covid %>% filter(date > today()-14)
 msa_table = (msa_table 
