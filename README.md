@@ -80,9 +80,9 @@ Variable Description:
 
 ### Covid Cases Report (2020):
 
-Source      
-Raw Data: us_covid_counties.csv     
-Processed Data: covid_14dayavg.rda      
+Source  \t
+Raw Data: us_covid_counties.csv \t 
+Processed Data: covid_14dayavg.rda  \t    
 
 Variable Description: 
 
