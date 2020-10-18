@@ -18,7 +18,7 @@ source("package_load.R")
 # 567) CNTYNAME - County name
 # 568) POP2010 - Population in 2010
 
-religion <- read.csv("./Data Extract/Data/CSV/religion.csv")
+religion <- read.csv("./CSV/religion.csv")
 religion <- religion[, c(1,2,3,407,408,409,562:ncol(religion))]
 
 religion = religion %>% 
@@ -26,5 +26,5 @@ religion = religion %>%
   select(c(1:13, last_col())) %>% # select relevant columns
   distinct(FIPS, CBSA, .keep_all = T) # only keep unique combination of FIPS and CBSA
 
-save(religion, file = "./Data Extract/Data/religion.rda")
+save(religion, file = "./religion.rda")
 
