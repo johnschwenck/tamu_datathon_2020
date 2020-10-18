@@ -31,7 +31,7 @@ merge <- full_join( demograph             , merge, by = "CBSA") # Demographics
 merge <- full_join( education             , merge, by = "CBSA") # Education
 
 length(merge$CBSA %>% unique)
-for(i in seq(df_list)){
+for(i in seq(length(df_list))){
   print(str_c(df_name_list[i], length(df_list[[i]]$CBSA %>% unique), nrow(df_list[[i]]), sep=" "))
 }
 

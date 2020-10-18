@@ -46,5 +46,5 @@ religion =  (left_join(religion, msa_table, by="fips")
                            sum(NONDCNG), sum(NONDADH),
                            mean(TOTRATE), mean(NONDRATE))) # summarize across CBSA
 
-save(religion, file = "Data Extract/Data/religion.rda")
+save(religion, file = "religion.rda")
 
