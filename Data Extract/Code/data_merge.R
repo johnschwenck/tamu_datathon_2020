@@ -37,10 +37,10 @@ for(i in seq(length(df_list))){
 
 View(merge)
 
-save(merge, file = 'merge.rda')
+save(merge, file = 'merge_no_ind.rda')
 
 # Religion doesn't load for some reason. Need to manually enter it via religion.R
 
 merge <- full_join( industries_pop        , merge, by = "CBSA") # Industries
-merge_no_ind <- merge 
-save(merge_no_ind, file = 'merge_no_ind.rda')
+merge_w_ind <- merge 
+save(merge_w_ind, file = 'merge_w_ind.rda')
