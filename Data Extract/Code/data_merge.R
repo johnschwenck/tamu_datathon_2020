@@ -36,6 +36,19 @@ for(i in seq(length(df_list))){
 
 View(merge)
 
+rename_fun = function(x){
+  if((x %>% str_split(., c("\\(")))[[1]][1] == x){
+    return(x)
+  }
+  else{
+    return(((x %>% str_split(., c("\\(")))[[1]][2] %>% str_split(., c("\\)")))[[1]][1] )
+  }
+}
+
+for(i in seq(length(names(merge)))){
+  names(merge)[i] = rename_fun(names(merge)[i])
+}
+
 save(merge, file = 'merge_no_ind.rda')
 
 
@@ -43,4 +56,8 @@ save(merge, file = 'merge_no_ind.rda')
 
 merge <- full_join( industries_pop        , merge, by = "CBSA") # Industries
 merge_w_ind <- merge 
+
+
+
 save(merge_w_ind, file = 'merge_w_ind.rda')
+
