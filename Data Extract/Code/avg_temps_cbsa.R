@@ -3,7 +3,7 @@ library(readr)
 library(readxl)
 
 load('Data Extract/Data/avg_temps_2011.rda')
-msa_table = read_excel('C:\\Users\\Arjun\\Downloads\\Projects\\devel\\datathon\\List12.xlsx')
+msa_table = read_excel('C:\\Users\\Arjun\\Downloads\\Projects\\devel\\datathon\\county_to_cbsa.xlsx')
 
 msa_table = (msa_table 
              %>% mutate(fips = paste0(`FIPS State Code`, `FIPS County Code`))

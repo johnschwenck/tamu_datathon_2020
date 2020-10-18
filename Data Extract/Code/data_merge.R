@@ -6,6 +6,15 @@ for(i in 1:length(list.files(pattern = ".rda"))){
   load(list.files(pattern = "*.rda")[i])
 }
 
+df_list = list(rent_price_metro, hc_rest_pop, aqi_2019, pub_trans, housing, 
+               covid_14dayavg_msa, avg_temps_msa, religion, trans, 
+               rent_price_metro, housing, demograph, education)
+
+df_name_list = c("rent_price_metro", "hc_rest_pop", "aqi_2019", "pub_trans", 
+                 "housing", "covid_14dayavg_msa", "avg_temps_msa", "religion",
+                 "trans", "rent_price_metro", "housing", "demograph", 
+                 "education")
+
 merge <- full_join( rent_price_metro      , hc_rest_pop, by = "CBSA") # Zip Metro Map & Rent
 merge <- full_join( hc_rest_pop           , merge, by = "CBSA") # Healthcare/Restaurants/Population
 merge <- full_join( aqi_2019              , merge, by = "CBSA") # Air Quality Index
@@ -20,6 +29,11 @@ merge <- full_join( rent_price_metro      , merge, by = "CBSA") # Avg Rent Price
 merge <- full_join( housing               , merge, by = "CBSA") # Avg Housing Price
 merge <- full_join( demograph             , merge, by = "CBSA") # Demographics
 merge <- full_join( education             , merge, by = "CBSA") # Education
+
+length(merge$CBSA %>% unique)
+for(i in seq(length(df_list))){
+  print(str_c(df_name_list[i], length(df_list[[i]]$CBSA %>% unique), nrow(df_list[[i]]), sep=" "))
+}
 
 View(merge)
 
