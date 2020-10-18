@@ -8,7 +8,7 @@ for(i in 1:length(list.files(pattern = ".rda"))){
 
 merge <- full_join( rent_price_metro, hc_rest_pop, by = "CBSA") # Zip Metro Map & Rent
 #merge <- full_join( hc_rest_pop           , merge, by = "CBSA") # Healthcare/Restaurants/Population
-merge <- full_join( industries_pop        , merge, by = "CBSA") # Industries
+#merge <- full_join( industries_pop        , merge, by = "CBSA") # Industries
 merge <- full_join( aqi_2019              , merge, by = "CBSA") # Air Quality Index
 merge <- full_join( pub_trans             , merge, by = "CBSA") # Public Transportation
 merge <- full_join( housing               , merge, by = "CBSA") # Housing Prices
@@ -24,6 +24,8 @@ merge <- full_join( education             , merge, by = "CBSA") # Education
 
 View(merge)
 
-# Religion doesn't load for some reason. Need to manually enter it via religion.R
-
 save(merge, file = 'merge.rda')
+
+# Religion doesn't load for some reason. Need to manually enter it via religion.R
+merge_no_ind <- merge 
+save(merge_no_ind, file = 'merge_no_ind.rda')
