@@ -21,4 +21,8 @@ source("package_load.R")
 religion <- read.csv("./Data Extract/Data/CSV/religion.csv")
 religion <- religion[, c(1,2,3,407,408,409,562:ncol(religion))]
 
-save(religion, file = "C:/Users/John/Documents/GitHub/tamu_datathon_2020/Data Extract/Data/religion.Rda")
+religion = religion %>% rename("CBSA" = "FIPS")
+
+save(religion, file = "Data Extract/Data/religion.Rda")
+
+
