@@ -2,7 +2,7 @@
 source("package_load.R")
 
 # Description:
-Data File: RCMSCY10(Description Only Codebook)
+# Data File: RCMSCY10(Description Only Codebook)
 
 # 1) TOTCNG - All denominations/groups--Total number of congregations (2010)
 # 2) TOTADH - All denominations/groups--Total number of adherents (2010)
@@ -20,3 +20,5 @@ Data File: RCMSCY10(Description Only Codebook)
 
 religion <- read.csv("./Data Extract/Data/CSV/religion.csv")
 religion <- religion[, c(1,2,3,407,408,409,562:ncol(religion))]
+
+save(religion, file = "C:/Users/John/Documents/GitHub/tamu_datathon_2020/Data Extract/Data/religion.Rda")
