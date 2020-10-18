@@ -12,8 +12,7 @@ For the 2020 TAMU Datathon, our team chose to collaborated on creating a city se
 
 ### Links
 
-Dashboard:  
-Devpost: 
+Devpost: https://devpost.com/software/tamu_datathon_2020
 
 ### Outline of Our Approach:
 
