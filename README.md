@@ -26,7 +26,7 @@ Variable Descriptions:
 
 ### Rental Prices (2021 Forecast):
 
-Source: https://www.huduser.gov/portal/datasets/fmr.html#2021_data  
+Source: https://www.huduser.gov/portal/datasets/fmr.html#2021_data   
 Raw Data: fy2021-safmrs.xlsx  
 Processed Data: rent_metro.rda
 
@@ -41,9 +41,9 @@ Variable Descriptions:
 
 ### Air Quality Index (2019): 
 
-Source: https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual
-Raw Data: annual_aqi_by_cbsa_2019.csv
-Processed Data: air_quality.rda
+Source: https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual 
+Raw Data: annual_aqi_by_cbsa_2019.csv 
+Processed Data: air_quality.rda 
 
 Variable Descriptions:
 
@@ -53,25 +53,24 @@ Variable Descriptions:
 
 ### Public Transportation (2018): 
 
-Source: https://api.census.gov/data/2018/acs/acs5/variables.html
-Raw Data: 
-
-Census API key needed
+Source: https://api.census.gov/data/2018/acs/acs5/variables.html  
+Raw Data:   
+Census API key needed 
 pub_trans = get_acs(variables = "B08006_008", 
                     geography="metropolitan statistical area/micropolitan statistical area")
-Processed Data: pub_trans.rda
+Processed Data: pub_trans.rda 
 
 Variable Description:
 
-- **CBSA**: Core-based statistical area code 
-- **NAME**: City, State Abbr. Area Type
-- **Avg_User**: Average number of users 
+- **CBSA**: Core-based statistical area code  
+- **NAME**: City, State Abbr. Area Type 
+- **Avg_User**: Average number of users   
 
 ### Daily Average of Temperatures (2011):
 
-Source: https://wonder.cdc.gov/controller/datarequest/D60
-Raw Data: max_avg_temps2011.txt and min_avg_temps2011.txt
-Processed Data: avg_temps_msa.rda
+Source: https://wonder.cdc.gov/controller/datarequest/D60 
+Raw Data: max_avg_temps2011.txt and min_avg_temps2011.txt 
+Processed Data: avg_temps_msa.rda 
 
 Variable Description:
 
@@ -81,12 +80,12 @@ Variable Description:
 
 ### Covid Cases Report (2020):
 
-Source
-Raw Data: us_covid_counties.csv
-Processed Data: covid_14dayavg.rda
+Source  
+Raw Data: us_covid_counties.csv 
+Processed Data: covid_14dayavg.rda  
 
 Variable Description: 
 
-- **CBSA**: Core-based statistical area code
+- **CBSA**: Core-based statistical area code  
 - **mean(cases)**: Average number of Covid-19 cases from the date of the search
 - **mean(deaths)**: Average number of Covid-19 related deaths from the date of the search
