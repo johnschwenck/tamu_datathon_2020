@@ -1,8 +1,9 @@
 library('tidyverse')
-
+library('googlesheets4')
 setwd('Data Extract/Data/')
 
 load('merge_no_ind.rda')
+
 
 merge_data = (merge 
               %>% select(-CBSA, -NAME, -`CBSA_name`,
@@ -57,22 +58,29 @@ user_input_vars = c("Education", "Population", "Median Age",
                     "Housing Price", "Rent", "Air Quality",
                     "Healthcare Access", "Restaurants and Bars", "Traffic")
 
+sheet1 = read_sheet("https://docs.google.com/spreadsheets/d/14vhMIdmZDV1Byz60ZbXbku4WedpkjHK8zlxawvU_CkA/edit#gid=0")
+
+user_sample = rep(0, length(user_input_vars))
+
+for(i in seq(length(user_sample))){
+  user_sample[i] = as.integer(substr(sheet1[1, 1+i], 1, 1))
+}
 
 
 # CHANGE THIS TO SIMULATE USER INPUT
-user_sample = sample(0:3, length(user_input_vars), replace=T)
+# user_sample = sample(0:3, length(user_input_vars), replace=T)
 
 user_obs = rep(0, length(names(merge_data)))
 
 education_q_1 = c(0.2, 0.2, 0.4, 0.6, 0.8, 0.8)
 if(user_sample[1] == 1){
-  user_obs[1:6] = map2(1-education_qtrend, merge_data[,1:6],
+  user_obs[1:6] = map2(1-education_q_1, merge_data[,1:6],
                        ~ quantile(.y, .x)) %>% unlist %>% unname 
 } else if(user_sample[1] == 2){
   user_obs[1:6] = map2(rep(0.5, 6), merge_data[,1:6],
                        ~ quantile(.y, .x)) %>% unlist %>% unname
 } else if(user_sample[1] == 3){
-  user_obs[1:6] = map2(education_qtrend, merge_data[,1:6],
+  user_obs[1:6] = map2(education_q_1, merge_data[,1:6],
                        ~ quantile(.y, .x)) %>% unlist %>% unname
 }
 
