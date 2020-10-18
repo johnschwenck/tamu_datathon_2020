@@ -110,6 +110,9 @@ for(i in 2:length(usa)){
 }
 
 education$CBSA <- as.numeric(substr(as.character(education$GEOID),start = 3, nchar(as.character(education$GEOID)) ))
+education <- education %>%
+                select(-moe)
+education <- pivot_wider(education, names_from = variable, values_from = estimate)
 
 save(education, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\education.rda')
 
@@ -168,6 +171,9 @@ for(i in 2:length(usa)){
 }
 
 trans$CBSA <- as.numeric(substr(as.character(trans$GEOID),start = 3, nchar(as.character(trans$GEOID)) ))
+trans <- trans %>%
+            select(-moe)
+trans <- pivot_wider(trans, names_from = variable, values_from = estimate)
 
 save(trans, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\transportation.rda')
 
@@ -211,6 +217,9 @@ for(i in 2:length(usa)){
 }
 
 demograph$CBSA <- as.numeric(substr(as.character(demograph$GEOID),start = 3, nchar(as.character(demograph$GEOID)) ))
+demograph <- demograph %>%
+                select(-moe)
+demograph <- pivot_wider(demograph, names_from = variable, values_from = estimate)
 
 save(demograph, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\demographics.rda')
 
