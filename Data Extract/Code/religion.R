@@ -21,8 +21,10 @@ source("package_load.R")
 religion <- read.csv("./Data Extract/Data/CSV/religion.csv")
 religion <- religion[, c(1,2,3,407,408,409,562:ncol(religion))]
 
-religion = religion %>% rename("CBSA" = "FIPS")
+religion = religion %>% 
+  left_join(zip_metro, by = c("FIPS" = "county_fips")) %>%
+  select(c(1:13, last_col())) %>% # select relevant columns
+  distinct(FIPS, CBSA, .keep_all = T) # only keep unique combination of FIPS and CBSA
 
 save(religion, file = "Data Extract/Data/religion.Rda")
-
 
