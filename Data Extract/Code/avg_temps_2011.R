@@ -13,8 +13,6 @@ sum(max_avg_temp$County==min_avg_temp$County)
 
 avg_temps = data.frame(max_avg_temp$County, max_avg_temp$County.code, avg.max.temp = max_avg_temp$Avg.Daily.Max.Air.Temperature..F.)
 
-max_avg_temp$Avg.Daily.Max.Air.Temperature..F.
-
 avg_temps = inner_join(min_avg_temp, max_avg_temp)
 head(avg_temps)
 
@@ -25,4 +23,4 @@ avg_temps = avg_temps %>% mutate("Avg.Mean.Temp" = (Avg.Min.Temp + Avg.Max.Temp)
 
 head(avg_temps)
 
-save(avg_temps, file="avg_temps_2011.rda")
+save(avg_temps, file="Data Extract/avg_temps_2011.rda")
