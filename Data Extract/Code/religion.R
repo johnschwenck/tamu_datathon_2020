@@ -23,6 +23,6 @@ religion <- religion[, c(1,2,3,407,408,409,562:ncol(religion))]
 
 religion = religion %>% rename("CBSA" = "FIPS")
 
-save(religion, file = "Data Extract/Data/religion.Rda")
+save(religion, file = "./Data Extract/Data/religion.rda")
 
 

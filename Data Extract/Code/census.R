@@ -9,7 +9,7 @@ options(tigris_use_cache = TRUE)
 #census_api_key("9080c0a6748ee902d3ab1f59571efa6416a7e3bf") 
 
 # Load a table of all data variables
-acs_variables <- load_variables(2018, "acs5", cache = T)
+acs_variables <- load_variables(2018, "acs1", cache = T)
 
 # All FIPS codes
 fips_codes
@@ -32,11 +32,32 @@ edu_vars = c(
   edu_phd = "B15003_025"
 )
 
-education <- get_acs(geography = "county",
-          variables = edu_vars,
-        state = "NJ",
-        #geometry = T, # Add this last for plotting, but this makes the processing SLOW
-        year = 2018)
+education <- get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+                     variables = edu_vars,
+                     state = usa[1],
+                     #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                     year = 2016,
+                     survey = "acs5")
+
+for(i in 2:length(usa)){
+  education <- rbind(education,
+                     get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+                             variables = edu_vars,
+                             state = usa[i],
+                             #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                             year = 2016,
+                             survey = "acs5"))
+}
+
+education$CBSA <- as.numeric(substr(as.character(education$GEOID),start = 3, nchar(as.character(education$GEOID)) ))
+
+save(education, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\education.rda')
+
+
+
+
+
+
 
 
 
@@ -81,10 +102,10 @@ demogr_vars = c(
   med_income = "B19013_001"
 )
 
-demogr <- get_acs(geography = "county",
+demogr <- get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
                  variables = c(demogr_vars),
                  state = "NJ",
-                 #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                 geometry = T, # Add this last for plotting, but this makes the processing SLOW
                  year = 2018)
 
 
@@ -148,7 +169,7 @@ counties <- fips_codes %>%
 demogr_all <- map2(
   counties$state_code, counties$county_code,
   ~ get_acs(
-    geography = "block group",
+    geography = "metropolitan statistical area/micropolitan statistical area",
     variables = demogr_vars,
     state = .x,
     county = .y,
@@ -161,3 +182,28 @@ demogr_all <- map2(
 
 demographics <- reduce(demogr_all, rbind) %>%
   print()
+
+
+
+
+#############################################
+
+f1 = function(state, county){
+  print(paste0(state, " : ", county))
+  get_acs(
+    geography = "metropolitan statistical area/micropolitan statistical area",
+    variables = demogr_vars,
+    state = state,
+    #county = county,
+    year = 2018,
+    survey = "acs5",
+    geometry = TRUE
+  )
+}
+
+demogr_all_test <- map2(
+  counties$state_code[1], counties$county_code[1],
+  ~ f1(.x, .y)
+) %>%
+  print()
+
