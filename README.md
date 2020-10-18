@@ -6,9 +6,12 @@
 - Christopher Han (christopherhan@stat.tamu.edu)
 - John Schwenck (jschwenck@stat.tamu.edu)
 
+# Datathon Goal
+For our 2020 TAMU Datathon submission, we have elected to solve the **City Search challenge**. Our model's unique spin offers a complete front-to-end implementation of a K-Means algorithm, which suggest the Top 12 best locations for a given user's preferences. We utilized Google tools such as Google Forms and Google Sheets where users submit a form with their preferences to a series of questions, which then get fed into a Google Sheet. Using R, we extract the information from the Google Sheet using the googledrive package and feed it into our K-Means algorithm. 
+
 ### Summary 
 
-For the 2020 TAMU Datathon, our team chose to collaborated on creating a city search tool. The city search tool matches users based on a multitude of criteria with an ideal city or area that best fits their specifications. Over 10 different data sets were utilized to collect the most current data, spanning from recent air quality reports to covid-19 cases reported in the past 14 days. After thoroughly cleaning the data sets and merging all desired variables, our team applyed clustering techniques to organize outcomes based on selectable criteria. The user can visit the city search dashboard that we have created which asethetically formats the results of their criteria searches. 
+For the 2020 TAMU Datathon, our team chose to collaborated on creating a city search tool. The city search tool matches users based on a multitude of criteria with an ideal city or area that best fits their specifications. Over 10 different data sets were utilized to collect the most current data, spanning from recent air quality reports to covid-19 cases reported in the past 14 days. After thoroughly cleaning the data sets and merging all desired variables, our team applyed clustering techniques to organize outcomes based on selectable criteria. The user can visit the city search dashboard that we have created which aesthetically formats the results of their criteria searches. 
 
 ### Links
 
