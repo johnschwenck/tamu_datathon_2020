@@ -44,6 +44,6 @@ industries_pop = (industries_pop %>% mutate(pca = tot_emp/estimate)
                              CBSA_name = area_title,
                              pop = estimate)
                   %>% mutate(CBSA = as.numeric(CBSA))
-                  %>% select())
+                  %>% select(CBSA, occ_title, tot_emp, pop, pca, loc_quotient))
 
 save(industries_pop, file="Data Extract/Data/industries_labor.rda")
