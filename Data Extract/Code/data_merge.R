@@ -24,7 +24,6 @@ merge <- full_join( avg_temps_msa         , merge, by = "CBSA") # Avg Temps
 merge <- full_join( religion              , merge, by = "CBSA") # Religion
 #merge <- full_join( traffic_cbsa          , merge, by = "CBSA") # Traffic 
 merge <- full_join( trans                 , merge, by = "CBSA") # Transportation Methods
-merge <- full_join( rent_price_metro      , merge, by = "CBSA") # Avg Rent Price
 merge <- full_join( demograph             , merge, by = "CBSA") # Demographics
 merge <- full_join( education             , merge, by = "CBSA") # Education
 
