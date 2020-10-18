@@ -212,54 +212,54 @@ for(i in 2:length(usa)){
 
 demograph$CBSA <- as.numeric(substr(as.character(demograph$GEOID),start = 3, nchar(as.character(demograph$GEOID)) ))
 
-save(trans, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\demographics.rda')
+save(demograph, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\demographics.rda')
 
 
 
+# 
+# 
+# 
+# counties <- fips_codes %>%
+#   filter(state %in% usa)
+# 
+# demogr_all <- map2(
+#   counties$state_code, counties$county_code,
+#   ~ get_acs(
+#     geography = "metropolitan statistical area/micropolitan statistical area",
+#     variables = demogr_vars,
+#     state = .x,
+#     county = .y,
+#     year = 2018,
+#     survey = "acs5",
+#     geometry = TRUE
+#   )
+# ) %>%
+#   print()
+# 
+# demographics <- reduce(demogr_all, rbind) %>%
+#   print()
 
 
-
-counties <- fips_codes %>%
-  filter(state %in% usa)
-
-demogr_all <- map2(
-  counties$state_code, counties$county_code,
-  ~ get_acs(
-    geography = "metropolitan statistical area/micropolitan statistical area",
-    variables = demogr_vars,
-    state = .x,
-    county = .y,
-    year = 2018,
-    survey = "acs5",
-    geometry = TRUE
-  )
-) %>%
-  print()
-
-demographics <- reduce(demogr_all, rbind) %>%
-  print()
-
-
-
-
-#############################################
-
-f1 = function(state, county){
-  print(paste0(state, " : ", county))
-  get_acs(
-    geography = "metropolitan statistical area/micropolitan statistical area",
-    variables = demogr_vars,
-    state = state,
-    #county = county,
-    year = 2018,
-    survey = "acs5",
-    geometry = TRUE
-  )
-}
-
-demogr_all_test <- map2(
-  counties$state_code[1], counties$county_code[1],
-  ~ f1(.x, .y)
-) %>%
-  print()
-
+# 
+# 
+# #############################################
+# 
+# f1 = function(state, county){
+#   print(paste0(state, " : ", county))
+#   get_acs(
+#     geography = "metropolitan statistical area/micropolitan statistical area",
+#     variables = demogr_vars,
+#     state = state,
+#     #county = county,
+#     year = 2018,
+#     survey = "acs5",
+#     geometry = TRUE
+#   )
+# }
+# 
+# demogr_all_test <- map2(
+#   counties$state_code[1], counties$county_code[1],
+#   ~ f1(.x, .y)
+# ) %>%
+#   print()
+# 
