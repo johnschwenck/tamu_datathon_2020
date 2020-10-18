@@ -16,7 +16,6 @@ df_name_list = c("rent_price_metro", "hc_rest_pop", "aqi_2019", "pub_trans",
                  "education")
 
 merge <- full_join( rent_price_metro      , hc_rest_pop, by = "CBSA") # Zip Metro Map & Rent
-merge <- full_join( hc_rest_pop           , merge, by = "CBSA") # Healthcare/Restaurants/Population
 merge <- full_join( aqi_2019              , merge, by = "CBSA") # Air Quality Index
 merge <- full_join( pub_trans             , merge, by = "CBSA") # Public Transportation
 merge <- full_join( housing               , merge, by = "CBSA") # Housing Prices
@@ -45,19 +44,10 @@ rename_fun = function(x){
   }
 }
 
-<<<<<<< HEAD
 for(i in seq(length(names(merge)))){
   names(merge)[i] = rename_fun(names(merge)[i])
 }
 
-=======
-for(i in length(names(merge))){
-  names(merge)[i] = rename_fun(names(merge)[i])
-}
-
-names(merge) = 
-
->>>>>>> 609a75ad50b88490f9e0305ef9dff9f27293f4b6
 save(merge, file = 'merge_no_ind.rda')
 
 
