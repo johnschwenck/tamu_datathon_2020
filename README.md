@@ -80,9 +80,9 @@ Variable Description:
 
 ### Demographics
 
-Source: https://www.bls.gov/oes/tables.html   
-Raw Data: oesm19ma.zip; MSA_M2019_dl.xlsx   
-Processed Data: demographics.rda    
+Source: https://www.bls.gov/oes/tables.html    
+Raw Data: B01003_001B01002_001, B19013_001    
+Processed Data: demographics.rda      
 
 Variable Descriptions:
 
@@ -150,32 +150,30 @@ Processed Data: transportation.rda
 
 Variable Description: 
 
-- **public_trans_qty**: Average number of people who took public transportation
-- **priv_trans_all_qty**: Average number of people who took private transportation
-- **priv_trans_alone_qty**: Average number of people who took private transportation and traveled alone
-- **priv_trans_carpool_qty**: Average number of people who took private transportation and carpooled
-- **walked_qty**: Average number of people who walk
-- **bike_cab_other_qty**: Average number of bike, cab and other transportation usage
-- **work_from_home_qty**: Average number of people who work from home
-- **avg_time_to_work_all**: Average number of seconds for a person to get to work 
+- *CBSA*: Core-based statistical area code
+- *public_trans_qty*: Average number of people who took public transportation
+- *priv_trans_all_qty*: Average number of people who took private transportation
+- *priv_trans_carpool_qty*: Average number of people who took private transportation and carpooled
+- *walked_qty*: Average number of people who walk
+- *bike_cab_other_qty*: Average number of bike, cab and other transportation usage
+- *work_from_home_qty*: Average number of people who work from home
+- *avg_time_to_work_all*: Average number of seconds for a person to get to work 
 
+### Religion (2010):
 
-### Religion
-
-Source: 
-Raw Data: 
-Processed Data: 
-
-Variable Description: 
-
-### Politics 
-
-
-Source: 
-Raw Data: 
-Processed Data: 
+Source: https://www.thearda.com/Archive/ChCounty.asp
+Raw Data: religion.csv  
+Processed Data: religion.rda  
 
 Variable Description: 
+
+- *CBSA*: Core-based statistical area code
+- *sum(TOTCNG)*: All denominations/groups - Total number of congregations
+- *sum(TOTADH)*: All denominations/groups - Total number of adherents 
+- *sum(NONDCNG)*: Non-denominational - Total number of congregations
+- *sum(NONDADH)*: Non-denominational- Total number of adherents
+- *mean(TOTRATE)*:  All denominations/groups - Rates of adherence per 1,000 population
+- *mean(NONDRATE)*: Non-denominational - Rates of adherence per 1,000 population
 
 ### Labor - Industries
 
@@ -184,6 +182,13 @@ Raw Data:
 Processed Data: 
 
 Variable Description: 
+
+- *CBSA*:
+- *occ_title*:
+- *tot_emp*:
+- *pop*: 
+- *pca*:
+- *loc_quotient*:
 
 ### Education
 
