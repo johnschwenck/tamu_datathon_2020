@@ -1,4 +1,10 @@
 library('tidyverse')
+library('googlesheets4')
+
+drive_auth()
+sheet1 = read_sheet("https://docs.google.com/spreadsheets/d/14vhMIdmZDV1Byz60ZbXbku4WedpkjHK8zlxawvU_CkA")
+
+
 
 setwd('Data Extract/Data/')
 
