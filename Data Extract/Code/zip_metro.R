@@ -10,7 +10,7 @@ get_zip_metro <- function(data_folder_path){
   
   relevant <- c("zip", "city", "state_id", "population", "county_fips", "county_name")
   uszip <- uszipz[, relevant]
-  merged <- uszip %>% left_join(rel, by = c("zip" = "ZCTA5")) %>% select(c(relevant, "CBSA"))
+  merged <- uszip %>% right_join(rel, by = c("zip" = "ZCTA5")) %>% select(c(relevant, "CBSA"))
   
   setwd(original_path)
   return(merged)
