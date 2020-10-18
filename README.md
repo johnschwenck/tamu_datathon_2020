@@ -51,3 +51,43 @@ Variable Descriptions:
 - **four_bed_rent**: Average price in dollars of four bedroom apartment
 - **five_bed_rent**: Average price in dollars of five bedroom apartment
 
+### Air Quality Index (2019): 
+
+Source: https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual
+Raw Data: annual_aqi_by_cbsa_2019.csv
+Processed Data: air_quality.rda
+
+Variable Descriptions:
+
+- **City, State**: City and State for each entry
+- **CBSA**:  Core-based statistical area code 
+- **Median AQI**: Median Air Quality Index
+
+### Public Transportation (2018): 
+
+Source: https://api.census.gov/data/2018/acs/acs5/variables.html
+Raw Data: 
+
+Census API key needed
+pub_trans = get_acs(variables = "B08006_008", 
+                    geography="metropolitan statistical area/micropolitan statistical area")
+
+Processed Data: pub_trans.rda
+
+Variable Description:
+
+- **CBSA**: Core-based statistical area code 
+- **NAME**: City, State Abbr. Area Type
+- **Avg_User**: Average number of users 
+
+### Daily Average of Temperatures (2011):
+
+Source: https://wonder.cdc.gov/controller/datarequest/D60
+Raw Data: max_avg_temps2011.txt and min_avg_temps2011.txt
+Processed Data: avg_temps_msa.rda
+
+Variable Description:
+
+- **CBSA**: Core-based statistical area code 
+- **mean(Avg.Min.Temp)**: mean averegae of minimum air temperature for each CBSA 
+- **mean(Avg.Max.Temp)**: mean averegae of maximum air temperature for each CBSA 
