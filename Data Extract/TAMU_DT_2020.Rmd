@@ -1,0 +1,57 @@
+---
+title: "TAMU Datathon 2020"
+author: "Allison (Bertie) Johnson | Arjun Ravikumar | Christopher Han | John Schwenck"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(tidycensus)
+library(googledrive)
+library(tidyverse)
+library(stringr)
+library(readxl)
+
+load('C:/Users/John/Documents/GitHub/tamu_datathon_2020/Data Extract/Data/merge_no_ind.rda')
+
+```
+
+Inputs {.sidebar}
+-----------------------------------------------------------------------
+```{r}
+
+fillCol(height = 600, flex = c(NA, 1), 
+  inputPanel(
+    selectInput('states','State', edu_hs_only)
+  ),
+  plotOutput("phonePlot", height = "100%")
+)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
