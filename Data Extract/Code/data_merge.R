@@ -45,10 +45,19 @@ rename_fun = function(x){
   }
 }
 
+<<<<<<< HEAD
 for(i in seq(length(names(merge)))){
   names(merge)[i] = rename_fun(names(merge)[i])
 }
 
+=======
+for(i in length(names(merge))){
+  names(merge)[i] = rename_fun(names(merge)[i])
+}
+
+names(merge) = 
+
+>>>>>>> 609a75ad50b88490f9e0305ef9dff9f27293f4b6
 save(merge, file = 'merge_no_ind.rda')
 
 
