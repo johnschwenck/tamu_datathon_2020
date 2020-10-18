@@ -1,5 +1,6 @@
 library('tidyverse')
 library('googlesheets4')
+
 setwd('Data Extract/Data/')
 
 load('merge_no_ind.rda')
@@ -42,11 +43,11 @@ merge_data = merge_data %>% mutate(edu_hs_only = edu_hs_only/total_pop,
                                    total_pop = log(total_pop),
                                    mean_temp = (Avg.Min.Temp + Avg.Max.Temp)/2,
                                    house_avg = (one_bed_avg + 0.5*two_bed_avg + 
-                                                0.3333*three_bed_avg + 0.25*four_bed_avg +
-                                                0.2*fiveplus_bed_avg)/(1+0.5+0.3333+0.25+0.2),
+                                                  0.3333*three_bed_avg + 0.25*four_bed_avg +
+                                                  0.2*fiveplus_bed_avg)/(1+0.5+0.3333+0.25+0.2),
                                    rent_avg = (one_bed_rent + 0.5*two_bed_rent + 
-                                               0.3333*three_bed_rent + 0.25*four_bed_rent +
-                                               0.2*five_bed_rent)/(1+0.5+0.3333+0.25+0.2))
+                                                 0.3333*three_bed_rent + 0.25*four_bed_rent +
+                                                 0.2*five_bed_rent)/(1+0.5+0.3333+0.25+0.2))
 rownames(merge_data) = (merge %>% drop_na)$CBSA
 
 all_cl = kmeans(merge_data, centers=20)
@@ -85,23 +86,23 @@ if(user_sample[1] == 1){
 }
 
 input_vars_1 = list("7"=user_sample[3],
-                       "8"=user_sample[2],
-                       "10"=case_when(user_sample[4]<=1 & user_sample[5]<=1 & user_sample[6]<=1 ~ 3,
-                                    user_sample[4]==2 | user_sample[5]==2 | user_sample[6]==2 ~ 2,
-                                    TRUE ~ 1),
-                       "11"=user_sample[6],
-                       "12"=user_sample[4],
-                       "13"=user_sample[5],
-                       "14"=user_sample[7],
-                       "15"=user_sample[16],
-                       "22"=user_sample[8],
-                       "26"=user_sample[10],
-                       "34"=user_sample[13],
-                       "44"=user_sample[14],
-                       "45"=user_sample[15],
-                       "46"=user_sample[9],
-                       "47"=user_sample[11],
-                       "48"=user_sample[12])
+                    "8"=user_sample[2],
+                    "10"=case_when(user_sample[4]<=1 & user_sample[5]<=1 & user_sample[6]<=1 ~ 3,
+                                   user_sample[4]==2 | user_sample[5]==2 | user_sample[6]==2 ~ 2,
+                                   TRUE ~ 1),
+                    "11"=user_sample[6],
+                    "12"=user_sample[4],
+                    "13"=user_sample[5],
+                    "14"=user_sample[7],
+                    "15"=user_sample[16],
+                    "22"=user_sample[8],
+                    "26"=user_sample[10],
+                    "34"=user_sample[13],
+                    "44"=user_sample[14],
+                    "45"=user_sample[15],
+                    "46"=user_sample[9],
+                    "47"=user_sample[11],
+                    "48"=user_sample[12])
 
 permanent_filter = c(9, 16, 17, 18, 19, 20, 21, 23, 24, 25, 27, 28, 29, 30, 
                      31, 32, 33, 35, 36, 37, 38, 39, 40, 41, 42, 43)
@@ -113,14 +114,14 @@ mirror_input_vars_1 = rep(0, length(input_vars_1))
 for(i in seq(length(input_vars_q_1))){
   if(input_vars_q_1[i] == "D"){
     user_obs[as.integer(names(input_vars_1)[i])] = (quantile(merge_data[,as.integer(names(input_vars_1)[i])], 
-                                                               0.25*input_vars_1[i] %>% unname %>% unlist))
+                                                             0.25*input_vars_1[i] %>% unname %>% unlist))
   }
   else {
     mirror_input_vars_1[i] = case_when(input_vars_1[i]==1 ~ 3,
                                        input_vars_1[i]==3 ~ 1,
                                        TRUE ~ 2)
     user_obs[as.integer(names(input_vars_1)[i])] = quantile(merge_data[,as.integer(names(input_vars_1)[i])], 
-                                                       0.25*mirror_input_vars_1[i])
+                                                            0.25*mirror_input_vars_1[i])
   }
 }
 
