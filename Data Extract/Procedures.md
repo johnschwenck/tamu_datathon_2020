@@ -1,6 +1,9 @@
 # Procedure:
 
-For the 2020 TAMU Datathon, our team chose to collaborated on creating a city search tool. The city search tool matches users based on a multitude of criteria with an ideal city or area that best fits their specifications. Over 10 different data sets were utilized to collect the most current data, spanning from recent air quality reports to covid-19 cases reported in the past 14 days. After thoroughly cleaning the data sets and merging all desired variables, our team applyed hierarical clustering techniques to organize outcomes based on selectable criteria. Once all __________________________
+For the 2020 TAMU Datathon, our team chose to collaborated on creating a city search tool. The city search tool matches users based on a multitude of criteria with an ideal city or area that best fits their specifications. Over 10 different data sets were utilized to collect the most current data, spanning from recent air quality reports to covid-19 cases reported in the past 14 days. After thoroughly cleaning the data sets and merging all desired variables, our team applyed clustering techniques to organize outcomes based on selectable criteria. The user can visit the city search dashboard that we have created which asethetically formats the results of their criteria searches. 
+
+Dashboard:  
+Devpost: 
 
 ### Outline of approach:
 - Identify region of interest (U.S)
