@@ -22,8 +22,68 @@ fips_codes
 #   - Median Age (Total)
 #   - Median Income
 
+
+
+usa <- c(
+  'AL',
+  'AK',
+  'AZ',
+  'AR',
+  'CA',
+  'CO',
+  'CT',
+  'DE',
+  'FL',
+  'GA',
+  'HI',
+  'ID',
+  'IL',
+  'IN',
+  'IA',
+  'KS',
+  'KY',
+  'LA',
+  'ME',
+  'MD',
+  'MA',
+  'MI',
+  'MN',
+  'MS',
+  'MO',
+  'MT',
+  'NE',
+  'NV',
+  'NH',
+  'NJ',
+  'NM',
+  'NY',
+  'NC',
+  'ND',
+  'OH',
+  'OK',
+  'OR',
+  'PA',
+  'RI',
+  'SC',
+  'SD',
+  'TN',
+  'TX',
+  'UT',
+  'VT',
+  'VA',
+  'WA',
+  'WV',
+  'WI',
+  'WY'
+)
+
+
+
+
+
+# Education
 edu_vars = c(
-  edu_level = "B15003_001",
+  #edu_level = "B15003_001",
   edu_hs_only = "B15003_017",
   edu_ged_only = "B15003_018",
   edu_bs = "B15003_022",
@@ -86,82 +146,78 @@ trans_vars = c(
   
   avg_time_to_work_all = "B08134_001"
 )
-
-trans <- get_acs(geography = "county",
-                     variables = trans_vars,
-                     state = "NJ",
-                     #geometry = T, # Add this last for plotting, but this makes the processing SLOW
-                     year = 2018)
 # Add B08006_008E: all public transportation
 
 
+
+trans <- get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+                     variables = trans_vars,
+                     state = usa[1],
+                     #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                     year = 2016,
+                     survey = "acs5")
+
+for(i in 2:length(usa)){
+  trans <- rbind(trans,
+                     get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+                             variables = trans_vars,
+                             state = usa[i],
+                             #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                             year = 2016,
+                             survey = "acs5"))
+}
+
+trans$CBSA <- as.numeric(substr(as.character(trans$GEOID),start = 3, nchar(as.character(trans$GEOID)) ))
+
+save(trans, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\transportation.rda')
+
+
+
+
+
+
+
+
+
 # Demographic Variables
-demogr_vars = c(
+demograph_vars = c(
   total_pop = "B01003_001",
   med_age_total = "B01002_001",
   med_income = "B19013_001"
 )
 
-demogr <- get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
-                 variables = c(demogr_vars),
-                 state = "NJ",
-                 geometry = T, # Add this last for plotting, but this makes the processing SLOW
-                 year = 2018)
+# demogr <- get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+#                  variables = c(demogr_vars),
+#                  state = "NJ",
+#                  geometry = T, # Add this last for plotting, but this makes the processing SLOW
+#                  year = 2018)
+
+
+demograph <- get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+                 variables = demograph_vars,
+                 state = usa[1],
+                 #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                 year = 2016,
+                 survey = "acs5")
+
+for(i in 2:length(usa)){
+  demograph <- rbind(demograph,
+                 get_acs(geography = "metropolitan statistical area/micropolitan statistical area",
+                         variables = demograph_vars,
+                         state = usa[i],
+                         #geometry = T, # Add this last for plotting, but this makes the processing SLOW
+                         year = 2016,
+                         survey = "acs5"))
+}
+
+demograph$CBSA <- as.numeric(substr(as.character(demograph$GEOID),start = 3, nchar(as.character(demograph$GEOID)) ))
+
+save(trans, file = 'C:\\Users\\John\\Documents\\GitHub\\tamu_datathon_2020\\Data Extract\\Data\\demographics.rda')
 
 
 
-usa <- c(
-  'AL',
-  'AK',
-  'AZ',
-  'AR',
-  'CA',
-  'CO',
-  'CT',
-  'DE',
-  'FL',
-  'GA',
-  'HI',
-  'ID',
-  'IL',
-  'IN',
-  'IA',
-  'KS',
-  'KY',
-  'LA',
-  'ME',
-  'MD',
-  'MA',
-  'MI',
-  'MN',
-  'MS',
-  'MO',
-  'MT',
-  'NE',
-  'NV',
-  'NH',
-  'NJ',
-  'NM',
-  'NY',
-  'NC',
-  'ND',
-  'OH',
-  'OK',
-  'OR',
-  'PA',
-  'RI',
-  'SC',
-  'SD',
-  'TN',
-  'TX',
-  'UT',
-  'VT',
-  'VA',
-  'WA',
-  'WV',
-  'WI',
-  'WY'
-)
+
+
 
 counties <- fips_codes %>%
   filter(state %in% usa)
