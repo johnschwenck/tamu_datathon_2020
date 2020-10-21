@@ -1,0 +1,12 @@
+name: CitySearchTool
+title: CitySearchTool
+username:
+account: chrishan
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3054427
+bundleId: 3760969
+url: https://chrishan.shinyapps.io/CitySearchTool/
+when: 1603169688.22483
+asMultiple: FALSE
+asStatic: FALSE
